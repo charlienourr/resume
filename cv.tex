@@ -10,6 +10,8 @@
 % an alternative to Layaureo can be ** \usepackage{fullpage} **
 \usepackage{supertabular} 				%for Grades
 \usepackage{titlesec}					%custom \section
+\usepackage{tabu}
+\usepackage{multirow}
 
 %Setup hyperref package, and colours for links
 \usepackage{hyperref}
@@ -67,6 +69,14 @@ ItalicFont = Fontin-Italic.otf
 \font\fb=''[cmr10]'' %for use with \LaTeX command
 
 %--------------------TITLE-------------
+
+\Large{
+  \begin{tabu}{ l r }
+   \scshape{charlie} & \multirow{5}{1in}{\includegraphics[width=0.88in]{avatar}} \\
+    
+  \end{tabu}
+}
+
 \par{%\centering{
 	\Large
 	Charles \textsc{Nourry}
