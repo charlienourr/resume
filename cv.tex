@@ -36,13 +36,20 @@ ItalicFont = Fontin-Italic.otf
 \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{2pt}{2pt}
 %Tweak a bit the top margin
+\pdfpagewidth 129mm
+\pdfpageheight 198mm
+
+\hsize 99mm
+\vsize 161mm
+
+\voffset -9.4mm
+\output{\ifodd\pageno\hoffset -11.4mm\else\hoffset -9.4mm\fi
+\plainoutput}
 \vsize=9.5in
 \addtolength{\voffset}{-1.5cm}
 %\def\makefootline{\baselineskip24pt\lineskiplimit0pt\line{\the\footline}}
 %\vsize 180mm
 \addtolength{\vsize}{50cm}
-%\addtolength{\hoffset}{-1.3cm}
-\footline{\hfil The page ends here!\hfil\the\pageno}
 %Italian hyphenation for the word: ''corporations''
 \hyphenation{im-pre-se}
 
