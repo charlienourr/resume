@@ -1,80 +1,146 @@
-% !TEX program = xelatex
+\documentclass[a4paper,10pt]{article}
 
-\documentclass{resume}
-%\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
-%\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+%A Few Useful Packages
+\usepackage{marvosym}
+\usepackage{fontspec} 					%for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+%\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage[empty]{fullpage}
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{hyperref}
 
+
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+%FONTS
+\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+%%% modified for Karol Kozioł for ShareLaTeX use
+\setmainfont[
+SmallCapsFont = Fontin-SmallCaps.otf,
+BoldFont = Fontin-Bold.otf,
+ItalicFont = Fontin-Italic.otf
+]
+{Fontin.otf}
+%%%
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{2pt}{2pt}
+%Tweak a bit the top margin
+   \addtolength{\voffset}{-0.7cm}
+%\vsize=15cm
+%\setlength{\footskip}{.96cm}
+%\def\makefootline{\baselineskip24pt\lineskiplimit0pt\line{\the\footline}}
+%\vsize 180mm
+%\addtolength{\vsize}{-50cm}
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.80\paperheight}
+\setlength{\parindent}{0pt}
+%\setlength{\topsep}{5pt}%
+
+%--------------------BEGIN DOCUMENT----------------------
 \begin{document}
-\pagenumbering{gobble} % suppress displaying page number
 
-\name{Charlie N}
+\pagestyle{empty} % non-numbered pages
 
-\basicInfo{
-  \email{yuanbin2014@gmail.com} \textperiodcentered\ 
-  \phone{(+86) 131-221-87xxx} \textperiodcentered\ 
-  \linkedin[billryan8]{https://www.linkedin.com/in/billryan8}}
+\font\fb=''[cmr10]'' %for use with \LaTeX command
 
-\section{\faGraduationCap\ Education}
-\datedsubsection{\textbf{Shanghai Jiao Tong University (SJTU)}, Shanghai, China}{2013 -- Present}
-\textit{Master student} in Electronics Engineering (EE), expected March 2016
-\datedsubsection{\textbf{Xidian University}, Shaanxi, China}{2009 -- 2013}
-\textit{B.S.} in Electronics Engineering (EE)
+%--------------------TITLE-------------
 
-\section{\faUsers\ Experience}
-\datedsubsection{\textbf{FLAG Inc.} California, America}{2012 -- Present}
-\role{Summer Intern}{Manager: xxx}
-Brief introduction: xxx.
-\begin{itemize}
-  \item Implemented xxx feature
-  \item Optimized xxx 5\%
-  \item xxx
-\end{itemize}
 
-\datedsubsection{\textbf{xxx Projects}}{Jan. 2015 -- Present}
-\role{C, Python, Django, Linux}{Individual Projects, collaborated with xxx}
-Brief introduction: xxx
-\begin{itemize}
-  \item Implemented xxx feature
-  \item Optimized xxx 5\%
-  \item xxx
-\end{itemize}
 
-\datedsubsection{\textbf{\LaTeX\ résumé template}}{May. 2015 -- Present}
-\role{\LaTeX, Maintainer}{Individual Projects}
-An elegant \LaTeX\ résumé template, https://github.com/billryan/resume
-\begin{itemize}
-  \item Easy to be further customized or extended
-  \item Full support for unicode characters (e.g. CJK) with \XeLaTeX\
-  \item FontAwesome 4.5.0 support
-\end{itemize}
+  \begin{tabular}{ p{11.5cm}r }
+   & \multirow{2}{*}{\includegraphics[width=1.3in]{pic}}\\
+   \\
+   \scshape{\Huge{Charles Nourry}} & \\
+   \\
+   \textsc{Age:} 22 ans &\\
+    \textsc{Adress:} 1 rue de la ferme &\\
+    \textsc{Ville:} 78150 - Le Chesnay&\\
+    \textsc{Téléphone:} 06 21 09 85 62&\\
+    \textsc{email:} \href{mailto:nourry\_charles@outlook.fr}{nourry\_charles@outlook.fr}& %\multirow{5}{2in}{\includegraphics[width=1.5in]{pic}}
+  \end{tabular}
+  
+  %TITRE
+  \vspace{0.1in}
+  %\centering{
+  %\Large{Candidature à l'offre de stage : Optimisation de l’insertion de contre mesure pour la sécurité des Circuits Intégrés}
+%}
 
-% Reference Test
-%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
-%An xxx optimized for xxx\cite{verma2015large}
-%\begin{itemize}
-%  \item main contribution
-%\end{itemize}
+%--------------------SECTIONS-----------------------------------
+%Section: Personal Data
+%\section{Personal Data}
 
-\section{\faCogs\ Skills}
-\begin{itemize}[parsep=0.5ex]
-  \item Programming Languages: C == Python > C++ > Java
-  \item Platform: Linux
-  \item Development: Web, xxx
-\end{itemize}
+%\begin{tabular}{ll}
+ %   \textsc{Age:} & 20 \\
+  %  \textsc{Address:}   & 1 rue de la ferme \\
+%    \textsc{Ville:} 	& 78150 - Le Chesnay\\
+ %   \textsc{Phone:}     & 06 21 09 85 62\\
+  %  \textsc{email:}     & $\href{mailto:nourry_charles@outlook.fr}{nourry_charles@outlook.fr}$
+%\end{tabular}
 
-\section{\faHeartO\ Honors and Awards}
-\datedline{\textit{\nth{1} Prize}, Award on xxx }{Jun. 2013}
-\datedline{Other awards}{2015}
+%Section: Work Experience at the top
+\section{Formation}
+\begin{tabular}{p{0.06cm} c p{0.04cm}|p{13cm}}
+ & \textsc{2018-2019} & & Master 2 Modélisation, Optimisation, Décision et Organisation\\&&&\emph{\small{Cohabilité par l'Université Paris-Dauphine et Mines ParisTech}}\\\multicolumn{2}{c}{} \\
+ & \textsc{2017-2018} & & Master 1 Parcours Informatique pour la Décision (Major et mention Très Bien)\\&&&\emph{\small{Université Paris-Dauphine}}\\\multicolumn{2}{c}{} \\
+ & \textsc{2016-2017} & & Licence Informatique des organisations - MIAGE et Décision (Major et mention Bien)\\&&&\emph{\small{Université Paris-Dauphine}}\\\multicolumn{2}{c}{} \\
+ & \textsc{2014-2016} & & Diplôme d'Etablissement Mathématiques, Informatique et applications à l'Economie et à l'Entreprise (L1 \& L2) \\&&&\emph{\small{Université Paris-Dauphine}}\\\multicolumn{2}{c}{} \\
+ &\textsc{2014} & & Baccalauréat Scientifique option Mathématiques \\&&&\emph{\small{Lycée Blanche de Castille, Le Chesnay}}\\
+\end{tabular}
+\titlespacing{\section}{0pt}{2pt}{2pt}
+\section{Expériences personnelles}
+\begin{tabular}{c|l}	
+ \textsc{avril} 2019 & Stage de fin de Master au sein d’\textsc{Orange Labs Networks} \\ 
+ \textsc{septembre} 2019 & \emph{"Chargé de conception de modèles et algorithmes d'optimisation pour réseaux}\\
+ & \emph{de fibres optiques"}\small{ - Modélisation et optimisation à l'aide d'approches exactes en PLNE}\\\multicolumn{2}{c}{} \\
+ \textsc{mai} 2018 & Stage de recherche au \textsc{LAMSADE} (Laboratoire d'Analyse et de Modélisation de\\  \textsc{août} 2018 & Systèmes pour l'Aide à la Décision) - Université Paris-Dauphine\\
+  & \emph{"Analyse de débats en ligne"}\small{ - Modélisations de débats à l'aide de la théorie de l'argumentation}\\\multicolumn{2}{c}{} \\
+ \textsc{mai} 2017 & Stage de Licence au \textsc{Crédit Industriel et Commercial}\\
+ \textsc{août} 2017 & \emph{"Mise en place d'outils informatiques"}\small{ - Gestion de bases de données et élaborations} \\ &  \small{d'applications}\\\multicolumn{2}{c}{}
+ \end{tabular}
 
-\section{\faInfo\ Miscellaneous}
-\begin{itemize}[parsep=0.5ex]
-  \item Blog: http://your.blog.me
-  \item GitHub: https://github.com/username
-  \item Languages: English - Fluent, Mandarin - Native speaker
-\end{itemize}
+\section{Compétences}
 
-%% Reference
-%\newpage
-%\bibliographystyle{IEEETran}
-%\bibliography{mycite}
+\begin{tabular}{l p{15cm}}	
+\textsc{Domaine :}    &   Optimisation Combinatoire, Programmation Mathématique, Modélisation, Aide à la décision\\&\\
+\textsc{Développement :} & CPLEX, Programmation orientée objet, Java, C, Python, R, Matlab, \LaTeX, VBA\\&\\
+\textsc{Logiciels/OS :}&  Microsoft Windows, Linux, CPLEX  Studio, GitHub, Jupyter Notebook, RStudio, Eclipse, \\
+     &                    JetBrains (\emph{IntelliJ, CLion, PyCharm,...}), MySQL, Word, Excel, PowerPoint, Access
+\end{tabular}
+
+
+%Section: Languages
+\section{Langues}
+\begin{flushleft}
+\begin{tabular}{p{0.05cm}ll}
+&\textsc{Français :}&Langue maternelle\\
+&\textsc{Anglais :}&Courant (TOEIC 2018: 820/990)\\
+&\textsc{Espagnol :}&Occasionnel
+\end{tabular}
+\end{flushleft}
+
 \end{document}
+%\section{Centres d'intérêt}
+%\begin{flushleft}
+%Piano, Cinéma, Athlétisme
+%\end{flushleft}
+%\XeTeXpdffile ''GMAT.pdf'' page 1 scaled 800
